@@ -2,10 +2,6 @@
 # we use python interpreter 3.12
 
 import streamlit as st
-import pandas as pd
-import requests  #to use an API for cocktails
-
-
 
 
 # Title and description
@@ -32,4 +28,19 @@ glass_type = st.selectbox("Choose glass type:", ['Highball', 'Martini', 'Coupe',
 # User selects difficulty
 difficulty_level = st.slider("Select difficulty level:", 1, 5)
 
+<<<<<<< Updated upstream
 #hellooo
+=======
+import requests
+
+def fetch_cocktails_by_ingredients(ingredients):
+    api_url = f"www.thecocktaildb.com/api/json/v1/1/filter.php?i={ingredients}"
+    response = requests.get(api_url)
+    return response.json()
+
+# In app.py, use this function to get cocktail suggestions
+if ingredients:
+    cocktail_data = fetch_cocktails_by_ingredients(ingredients)
+    st.write(cocktail_data)
+
+>>>>>>> Stashed changes
