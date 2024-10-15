@@ -2,8 +2,11 @@
 # we use python interpreter 3.12
 
 import streamlit as st
-# import pandas as pd import requests
-# If you plan to use an API for cocktails
+import pandas as pd
+import requests  #to use an API for cocktails
+
+
+
 
 # Title and description
 st.title("Cocktail Recipe Suggestion App")
@@ -19,3 +22,13 @@ if ingredients:
 
 # Display cocktail cards
 # st.image("cocktail_image_url")  # Example of showing cocktail images
+
+# User selects preferences for taste
+taste_preference = st.selectbox("Choose your taste preference:", ['Sweet', 'Sour', 'Bitter', 'Fruity'])
+
+# User selects glass type
+glass_type = st.selectbox("Choose glass type:", ['Highball', 'Martini', 'Coupe', 'Shot'])
+
+# User selects difficulty
+difficulty_level = st.slider("Select difficulty level:", 1, 5)
+
