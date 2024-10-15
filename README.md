@@ -1,6 +1,10 @@
 # Cocktail Recipes App
 Group Project Repository for Cocktail Recipes Application
 
+requirements:
+- streamlit
+  - pip install streamlit (terminal)
+
 Structure:
 
 project_directory/
