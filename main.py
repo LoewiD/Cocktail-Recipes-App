@@ -28,9 +28,6 @@ glass_type = st.selectbox("Choose glass type:", ['Highball', 'Martini', 'Coupe',
 # User selects difficulty
 difficulty_level = st.slider("Select difficulty level:", 1, 5)
 
-<<<<<<< Updated upstream
-#hellooo
-=======
 import requests
 
 def fetch_cocktails_by_ingredients(ingredients):
@@ -43,4 +40,4 @@ if ingredients:
     cocktail_data = fetch_cocktails_by_ingredients(ingredients)
     st.write(cocktail_data)
 
->>>>>>> Stashed changes
+
