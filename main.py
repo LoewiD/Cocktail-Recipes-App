@@ -31,5 +31,3 @@ glass_type = st.selectbox("Choose glass type:", ['Highball', 'Martini', 'Coupe',
 
 # User selects difficulty
 difficulty_level = st.slider("Select difficulty level:", 1, 5)
-
-#hellooo
