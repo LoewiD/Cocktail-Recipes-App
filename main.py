@@ -2,7 +2,7 @@ import streamlit as st
 from utils.user_interaction import get_user_input
 
 
-# App Title
+# Title
 st.title("Cocktail Recipe Suggestion App")
 
 # Get user inputs (from the external user_interaction.py file)
