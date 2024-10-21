@@ -10,14 +10,14 @@ ingredients, taste_preference, glass_type, difficulty_level = get_user_input()
 
 # Ensure the user selected at least one ingredient
 if ingredients:
-    st.write(f"You selected: {', '.join(ingredients)}")
+    st.write(f"You selected: {', '.join(ingredients)}") # joins the elements of the ingredients list into a single string, separating by a comma and a space.
 
     # Fetch cocktail suggestions for each selected ingredient
-    all_cocktail_data = []
-    for ingredient in ingredients:
-        cocktail_data = fetch_cocktails_by_ingredients(ingredient)
-        if cocktail_data:
-            all_cocktail_data.extend(cocktail_data)
+    all_cocktail_data = [] # empty list to store all the cocktail data fetched from the API for each ingredient
+    for ingredient in ingredients: # Loops through each ingredient selected by the user from the ingredients list.
+        cocktail_data = fetch_cocktails_by_ingredients(ingredient) # Calls the fetch_cocktails_by_ingredients(ingredient) function for each ingredient, which fetches the cocktail data from the API.
+        if cocktail_data: # checks if it worked (not empty)
+            all_cocktail_data.extend(cocktail_data) # extend() is used here to append multiple items from cocktail_data into all_cocktail_data (instead of adding the list as a single item).
 
     # Remove duplicates if needed
     seen = set()

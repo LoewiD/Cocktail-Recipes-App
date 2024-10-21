@@ -2,11 +2,11 @@ import streamlit as st
 
 
 def get_user_input():
-    # Predefined list of ingredients for the user to select from
+    # Predefined list of ingredients for the user to select from (could be expanded)
     ingredient_options = ['Vodka', 'Gin', 'Rum', 'Tequila', 'Whiskey', 'Lime', 'Lemon',
                           'Mint', 'Sugar', 'Triple Sec', 'Coca-Cola', 'Tonic', 'Soda Water']
 
-    # User selects ingredients using multiselect
+    # User selects ingredients using multiselect (less room for error)
     ingredients = st.multiselect("Select ingredients you have:", ingredient_options)
 
     # User selects taste preference (with a "Don't Care" option)
