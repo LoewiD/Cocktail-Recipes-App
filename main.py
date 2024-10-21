@@ -20,23 +20,23 @@ if ingredients:
             all_cocktail_data.extend(cocktail_data) # extend() is used here to append multiple items from cocktail_data into all_cocktail_data (instead of adding the list as a single item).
 
     # Remove duplicates if needed
-    seen = set()
-    unique_cocktails = []
-    for cocktail in all_cocktail_data:
-        if cocktail['name'] not in seen:
-            unique_cocktails.append(cocktail)
-            seen.add(cocktail['name'])
+    seen = set() # Initializes an empty set to keep track of cocktail names that have already been added to unique_cocktails.
+    unique_cocktails = [] # Initializes an empty list to store only the unique cocktails
+    for cocktail in all_cocktail_data: # loops through each cocktail in the list
+        if cocktail['name'] not in seen:  # checks if the cocktail has already been added to the seen list, if not:
+            unique_cocktails.append(cocktail) # adds the cocktail to the unique list
+            seen.add(cocktail['name']) # adds the cocktail to the seen set to mark it as "seen before"
 
     # Display suggestions
     if unique_cocktails:
         st.write("Here are some cocktail suggestions based on your ingredients:")
-        for cocktail in unique_cocktails:
-            st.subheader(cocktail['name'])
-            if 'instructions' in cocktail:
+        for cocktail in unique_cocktails: # loops through all cocktails in the unique list
+            st.subheader(cocktail['name']) # Title = name of the cocktail
+            if 'instructions' in cocktail: # checks if the API has Instructions and if yes we print it
                 st.write(cocktail['instructions'])
-            if 'ingredients' in cocktail:
+            if 'ingredients' in cocktail: # checks if the API has ingredients and if yes we print them
                 st.write(f"Ingredients: {', '.join(cocktail['ingredients'])}")
     else:
-        st.error("No cocktails found with the selected ingredients.")
+        st.error("No cocktails found with the selected ingredients.") # error Message in case there are no matching cocktails
 else:
-    st.warning("Please select at least one ingredient.")
+    st.warning("Please select at least one ingredient.") # message if the user has not yet selected any ingredients
