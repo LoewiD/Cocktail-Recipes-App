@@ -1,7 +1,7 @@
 import requests
 import streamlit as st
 
-API_KEY = 'hqkablvRuIR0glAy0lCBTg==8bEjDHjU436g4F4M'  # API Key from API Ninjas (Dennis)
+API_KEY = 'hqkablvRuIR0glAy0lCBTg==8bEjDHjU436g4F4M'  # API Key for API Ninjas (Dennis)
 
 def fetch_cocktails_by_ingredients(ingredient):
     api_url = f"https://api.api-ninjas.com/v1/cocktail?name={ingredient}"

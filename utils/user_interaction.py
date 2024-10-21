@@ -1,11 +1,17 @@
 import streamlit as st
 
+
 def get_user_input():
-    # User enters the ingredients they have
-    ingredients = st.text_input("Enter ingredients you have (comma-separated):")
+    # Predefined list of ingredients for the user to select from
+    ingredient_options = ['Vodka', 'Gin', 'Rum', 'Tequila', 'Whiskey', 'Lime', 'Lemon',
+                          'Mint', 'Sugar', 'Triple Sec', 'Coca-Cola', 'Tonic', 'Soda Water']
+
+    # User selects ingredients using multiselect
+    ingredients = st.multiselect("Select ingredients you have:", ingredient_options)
 
     # User selects taste preference (with a "Don't Care" option)
-    taste_preference = st.selectbox("Choose your taste preference:", ["Don't care", 'Sweet', 'Sour', 'Bitter', 'Fruity'])
+    taste_preference = st.selectbox("Choose your taste preference:",
+                                    ["Don't care", 'Sweet', 'Sour', 'Bitter', 'Fruity'])
 
     # User selects glass type (with a "Don't Care" option)
     glass_type = st.selectbox("Choose glass type:", ["Don't care", 'Highball', 'Martini', 'Coupe', 'Shot'])

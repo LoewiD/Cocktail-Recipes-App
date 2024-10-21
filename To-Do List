@@ -1,0 +1,5 @@
+main.py:
+
+1. List all the ingredients that the API uses (check API Dataset and include manually)
+2. Implement machine learning to give out favorite cocktails (maybe limit the selection to 3 drinks)
+3. Work in other criteria (flavor, glass-type, difficulty, etc.) check API for Key-Pairs
