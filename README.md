@@ -4,6 +4,7 @@ Group Project Repository for Cocktail Recipes Application
 requirements:
 - streamlit
   - pip install streamlit (terminal)
+  - pip install requests (terminal)
 
 Structure:
 
