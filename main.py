@@ -1,6 +1,6 @@
 import streamlit as st
 from utils.user_interaction import get_user_input
-from utils.data_fetch import fetch_cocktails_by_ingredients
+from utils.data_fetch import fetch_cocktails_by_ingredient
 
 # App Title
 st.title("Cocktail Recipe Suggestion App")
@@ -10,35 +10,26 @@ ingredients, taste_preference, glass_type, difficulty_level = get_user_input()
 
 # Ensure the user selected at least one ingredient
 if ingredients:
-    st.write(f"You selected: {', '.join(ingredients)}") # joins the elements of the ingredients list into a single string, separating by a comma and a space.
+    st.write(f"You selected: {', '.join(ingredients)}")
 
-    # Fetch cocktail suggestions for each selected ingredient
-    all_cocktail_data = [] # empty list to store all the cocktail data fetched from the API for each ingredient
-    for ingredient in ingredients: # Loops through each ingredient selected by the user from the ingredients list.
-        cocktail_data = fetch_cocktails_by_ingredients(ingredient) # Calls the fetch_cocktails_by_ingredients(ingredient) function for each ingredient, which fetches the cocktail data from the API.
-        if cocktail_data: # checks if it worked (not empty)
-            all_cocktail_data.extend(cocktail_data) # extend() is used here to append multiple items from cocktail_data into all_cocktail_data (instead of adding the list as a single item).
+    # Step 1: Fetch cocktails for the first ingredient
+    common_cocktails = set(cocktail['idDrink'] for cocktail in fetch_cocktails_by_ingredient(ingredients[0]))
 
-    # Remove duplicates if needed
-    seen = set() # Initializes an empty set to keep track of cocktail names that have already been added to unique_cocktails.
-    unique_cocktails = [] # Initializes an empty list to store only the unique cocktails
-    for cocktail in all_cocktail_data: # loops through each cocktail in the list
-        if cocktail['name'] not in seen:  # checks if the cocktail has already been added to the seen list, if not:
-            unique_cocktails.append(cocktail) # adds the cocktail to the unique list
-            seen.add(cocktail['name']) # adds the cocktail to the seen set to mark it as "seen before"
+    # Step 2: Intersect the results with cocktails from the other ingredients
+    for ingredient in ingredients[1:]:
+        cocktails_for_ingredient = fetch_cocktails_by_ingredient(ingredient)
+        # Keep only cocktails that are in both sets (intersection)
+        common_cocktails.intersection_update(cocktail['idDrink'] for cocktail in cocktails_for_ingredient)
 
-    # Display suggestions
-    if unique_cocktails:
+    # Step 3: Fetch details of the remaining common cocktails
+    if common_cocktails:
         st.write("Here are some cocktail suggestions based on your ingredients:")
-        for cocktail in unique_cocktails: # loops through all cocktails in the unique list
-            st.subheader(cocktail['name']) # Title = name of the cocktail
-            if 'instructions' in cocktail: # checks if the API has Instructions and if yes we print it
-                st.write(cocktail['instructions'])
-            if 'ingredients' in cocktail: # checks if the API has ingredients and if yes we print them
-                st.write(f"Ingredients: {', '.join(cocktail['ingredients'])}")
+        for cocktail_id in common_cocktails:
+            # Fetch detailed info for each cocktail (optional, not necessary with the 'filter.php' API)
+            cocktail = next(cocktail for cocktail in fetch_cocktails_by_ingredient(ingredients[0]) if cocktail['idDrink'] == cocktail_id)
+            st.subheader(cocktail['strDrink'])  # Name of the cocktail
+            st.image(cocktail['strDrinkThumb'])  # Display the image of the cocktail
     else:
-        st.error("No cocktails found with the selected ingredients.") # error Message in case there are no matching cocktails
+        st.error("No cocktails found with the selected ingredients.")
 else:
-    st.warning("Please select at least one ingredient.") # message if the user has not yet selected any ingredients
-
-#testing
+    st.warning("Please select at least one ingredient.")
