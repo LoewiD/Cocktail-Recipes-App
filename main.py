@@ -1,6 +1,6 @@
 import streamlit as st
 from utils.user_interaction import get_user_input
-from utils.data_fetch import fetch_cocktails_by_ingredient
+from utils.data_fetch import fetch_cocktails_by_ingredient, fetch_cocktail_details
 
 # App Title
 st.title("Cocktail Recipe Suggestion App")
@@ -25,10 +25,23 @@ if ingredients:
     if common_cocktails:
         st.write("Here are some cocktail suggestions based on your ingredients:")
         for cocktail_id in common_cocktails:
-            # Fetch detailed info for each cocktail (optional, not necessary with the 'filter.php' API)
-            cocktail = next(cocktail for cocktail in fetch_cocktails_by_ingredient(ingredients[0]) if cocktail['idDrink'] == cocktail_id)
-            st.subheader(cocktail['strDrink'])  # Name of the cocktail
-            st.image(cocktail['strDrinkThumb'])  # Display the image of the cocktail
+            # Fetch detailed info for each cocktail
+            details = fetch_cocktail_details(cocktail_id)
+            if details:
+                st.subheader(details['strDrink'])  # Name of the cocktail
+                st.image(details['strDrinkThumb'])  # Display the image of the cocktail
+                st.write(f"Category: {details['strCategory']}")  # Category
+                st.write(f"Glass: {details['strGlass']}")  # Glass type
+                st.write(f"Alcoholic: {details['strAlcoholic']}")  # Alcoholic or not
+                st.write(f"Instructions: {details['strInstructions']}")  # Instructions
+
+                # Display ingredients and measurements
+                ingredients_list = [details[f'strIngredient{i}'] for i in range(1, 16) if details[f'strIngredient{i}']]
+                measurements = [details[f'strMeasure{i}'] for i in range(1, 16) if details[f'strMeasure{i}']]
+
+                st.write("Ingredients:")
+                for ingredient, measure in zip(ingredients_list, measurements):
+                    st.write(f"{measure} {ingredient}")
     else:
         st.error("No cocktails found with the selected ingredients.")
 else:

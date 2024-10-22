@@ -5,7 +5,6 @@ def get_user_input():
     # Fetch all available ingredients from the API
     ingredient_options = fetch_all_ingredients()
 
-    # If ingredients were successfully fetched, display the multiselect
     if ingredient_options:
         # User selects ingredients using multiselect
         ingredients = st.multiselect("Select ingredients you have:", ingredient_options)
