@@ -17,3 +17,16 @@ project_directory/
 ├── requirements.txt          # Dependencies for Streamlit and other libraries
 └── README.md                 # Project documentation
 
+Idea:
+
+log in
+starting page: what would you like to do?
+  choose from: search by ingredient, search by name, look up data, feeling lucky, etc
+  direct to page with function that the user clicked on
+navigation bar on the right for other functions
+
+
+use data visualisation to express how many cocktails include vodka
+
+search for ingredient --> app only gives out name and ID
+  search by name/ID --> app gives instructions
