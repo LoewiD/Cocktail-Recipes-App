@@ -30,3 +30,6 @@ use data visualisation to express how many cocktails include vodka
 
 search for ingredient --> app only gives out name and ID
   search by name/ID --> app gives instructions
+
+add LLM API?
+
