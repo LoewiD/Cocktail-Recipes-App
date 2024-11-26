@@ -4,10 +4,8 @@ import pandas as pd
 from utils.data_fetch import fetch_all_ingredients, fetch_cocktails_by_ingredient
 
 @st.cache_data
-def get_top_ingredients():
-    """
-    Fetches the top 10 most used ingredients and the number of cocktails they are used in.
-    """
+def get_top_ingredients(): # fetches the 10 most popular ingredients
+
     # Fetch all ingredients
     ingredient_options = fetch_all_ingredients()
     if not ingredient_options:
@@ -24,10 +22,8 @@ def get_top_ingredients():
     return sorted_ingredients
 
 
-def ingredient_insights():
-    """
-    Visualizes the proportion of cocktails that use a given ingredient.
-    """
+def ingredient_insights(): # pie chart of how often a single ingredient is used
+
     st.header("Ingredient Usage Insights")
 
     # Fetch all available ingredients
