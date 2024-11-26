@@ -30,22 +30,24 @@ with col1:
 
     st.markdown(
         """
-        ### 🍸 Search Cocktails by Ingredient
-        - Select ingredients you have on hand to find matching cocktail recipes.
-        - Filter results by taste, glass type, and difficulty.
-        """
-    )
-    st.image("https://www.thecocktaildb.com/images/media/drink/5noda61589575158.jpg", caption="Find Recipes", use_column_width=True)
-
-with col2:
-    st.markdown(
-        """
         ### 🔍 Search Cocktails by Name
         - Enter the name of a cocktail to find detailed recipes.
         - Perfect if you know what you're looking for.
         """
     )
     st.image("https://www.thecocktaildb.com/images/media/drink/uqxqsy1468876703.jpg", caption="Search by Name", use_column_width=True)
+
+
+with col2:
+    st.markdown(
+        """
+        ### 🍸 Search Cocktails by Ingredients
+        - Select ingredients you have on hand to find matching cocktail recipes.
+        - Filter results by taste, glass type, and difficulty.
+        """
+    )
+    st.image("https://www.thecocktaildb.com/images/media/drink/5noda61589575158.jpg", caption="Find Recipes", use_column_width=True)
+    
 
     st.markdown(
         """
