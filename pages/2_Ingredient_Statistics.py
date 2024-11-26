@@ -3,6 +3,7 @@ import plotly.express as px
 import pandas as pd
 from utils.data_fetch import fetch_all_ingredients, fetch_cocktails_by_ingredient
 
+
 @st.cache_data
 def get_top_ingredients(): # fetches the 10 most popular ingredients
 
@@ -24,7 +25,7 @@ def get_top_ingredients(): # fetches the 10 most popular ingredients
 
 def ingredient_insights(): # pie chart of how often a single ingredient is used
 
-    st.header("Ingredient Usage Insights")
+    st.title("Ingredient Usage Insights")
 
     # Fetch all available ingredients
     ingredient_options = fetch_all_ingredients()

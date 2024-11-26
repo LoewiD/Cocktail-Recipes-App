@@ -97,3 +97,34 @@ def fetch_cocktail_details(cocktail_id):
         st.error(f"Request exception: {e}")
         return None
 
+def fetch_cocktail_by_name(name): #fetch cocktails by name
+
+    api_url = f"https://www.thecocktaildb.com/api/json/v1/1/search.php?s={name}"
+
+    try:
+        response = requests.get(api_url)
+        if response.status_code == 200:
+            data = response.json()
+            return data.get("drinks", None)  # Return the 'drinks' list
+        else:
+            st.error(f"Error {response.status_code}: Failed to fetch data from TheCocktailDB")
+            return None
+    except requests.exceptions.RequestException as e:
+        st.error(f"Request exception: {e}")
+        return None
+
+def fetch_random_cocktail():
+
+    api_url = "https://www.thecocktaildb.com/api/json/v1/1/random.php"
+
+    try:
+        response = requests.get(api_url)
+        if response.status_code == 200:
+            data = response.json()
+            return data.get("drinks", [None])[0]  # Return the first (and only) cocktail
+        else:
+            st.error(f"Error {response.status_code}: Failed to fetch data from TheCocktailDB")
+            return None
+    except requests.exceptions.RequestException as e:
+        st.error(f"Request exception: {e}")
+        return None

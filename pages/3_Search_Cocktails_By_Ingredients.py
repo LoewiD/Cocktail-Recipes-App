@@ -3,7 +3,7 @@ from utils.user_interaction import get_user_input
 from utils.data_fetch import fetch_cocktails_by_ingredient, fetch_cocktail_details
 
 
-st.header("Search Cocktails by Ingredients")
+st.title("Search Cocktails by Ingredients")
 ingredients = get_user_input()
 
 if ingredients:
