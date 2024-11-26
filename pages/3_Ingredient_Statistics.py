@@ -97,3 +97,7 @@ def ingredient_insights(): # pie chart of how often a single ingredient is used
 
             # Display the bar chart
             st.plotly_chart(fig_bar, use_container_width=True)
+
+get_top_ingredients()
+ingredient_insights()
+
