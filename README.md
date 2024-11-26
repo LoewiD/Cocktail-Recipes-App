@@ -8,14 +8,22 @@ requirements:
 
 Structure:
 
-project_directory/
-├── app.py                   # Main Streamlit app script
+project/
+│
+├── functions/
+│   ├── search_cocktails.py
+│   ├── ingredient_insights.py
+│   ├── favorites.py
+│   ├── about.py
+│
 ├── utils/
-│   ├── user_interaction.py   # Handles user input and interaction
-│   ├── data_fetch.py         # Handles API calls and data fetching
-│   └── model.py              # Contains ML model or recommendation system
-├── requirements.txt          # Dependencies for Streamlit and other libraries
-└── README.md                 # Project documentation
+│   ├── user_interaction.py
+│   ├── data_fetch.py
+│
+├── main.py
+│
+└── requirements.txt
+
 
 Idea:
 

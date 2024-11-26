@@ -8,34 +8,25 @@ API_URL_LOOKUP = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i="  # 
 
 
 # This function fetches all available ingredients from TheCocktailDB API. We use is for the Multiselect in user_interaction
+@st.cache_data # caching data in order to not overload the api
 def fetch_all_ingredients():
-
     try:
-        # Send a GET request to the API URL for ingredients
         response = requests.get(API_URL_INGREDIENTS)
-
-        # Check if the request was successful (HTTP status code 200 means OK/Good)
-        if response.status_code == 200:
-            # Parse (=Analyse) the JSON response from the API
-            data = response.json()  # The API response is a JSON object (JSON = standardized text-format readable by python)
-
-            # Check if the 'drinks' key is present in the response data
+        if response.status_code == 429:
+            st.error("Rate limit exceeded. Please try again later.")
+            return []
+        elif response.status_code == 200:
+            data = response.json()
             if 'drinks' in data:
-                # Return a list of ingredient names by extracting 'strIngredient1' for each ingredient
-                return [ingredient['strIngredient1'] for ingredient in data['drinks']]  # list comprehension to generate new list of all the ingredients
+                return [ingredient['strIngredient1'] for ingredient in data['drinks']]
             else:
-                # If no drinks were found, display an error message in Streamlit
                 st.error("No ingredients found.")
                 return []
         else:
-            # If the request was not successful, display an error message with the status code
             st.error(f"Error {response.status_code}: Failed to fetch ingredients from TheCocktailDB")
             return []
-
-    # Handle network-related errors (no internet connection, invalid URL, timeout, etc)
     except requests.exceptions.RequestException as e:
-        # Display an error message in Streamlit
-        st.error(f"Request exception: {e}") # store the error message in "e" so that we could log it
+        st.error(f"Request exception: {e}")
         return []
 
 
