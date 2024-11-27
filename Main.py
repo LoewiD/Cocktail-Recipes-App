@@ -1,17 +1,18 @@
-import streamlit as st
+import streamlit as st # import streamlit so that we can use streamlit integrated functions with st.
 
 # Page Title
 st.title("🍹 Welcome to the Ultimate Cocktail Recipes App! 🍹")
 
-# Introduction
-st.markdown(
-    """
-    Discover, save, and create your favorite cocktails! This app lets you explore cocktail recipes, manage your favorites, generate shopping lists, and even predict the difficulty of making a cocktail.
-    """
+# Introduction text
+st.write(
+
+    "Discover, save, and create your favorite cocktails! "
+    "This app lets you explore cocktail recipes, manage your favorites, generate shopping lists, and even predict the difficulty of making a cocktail."
+
 )
 
 
-# Features Overview
+# Features Overview markdown is better for styled text (bold in this case)
 st.markdown("## 🔎 Explore Features")
 
 # Feature Descriptions
