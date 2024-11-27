@@ -5,17 +5,17 @@ st.title("🍹 Welcome to the Ultimate Cocktail Recipes App! 🍹")
 
 # Introduction text
 st.write(
-
-    "Discover, save, and create your favorite cocktails! "
-    "This app lets you explore cocktail recipes, manage your favorites, generate shopping lists, and even predict the difficulty of making a cocktail."
-
+    """
+    Discover, save, and create your favorite cocktails! 
+    This app lets you explore cocktail recipes, manage your favorites, generate shopping lists, and even predict the difficulty of making a cocktail.
+    """
 )
 
 
 # Features Overview markdown is better for styled text (bold in this case)
 st.markdown("## 🔎 Explore Features")
 
-# Feature Descriptions
+# Feature Descriptions intro
 st.markdown(
     """
     ### 🌟 Features
@@ -23,7 +23,7 @@ st.markdown(
     """
 )
 
-# Create a feature list with images/icons
+# Create a feature list with dictionairies with title, description and a suitable image (from CocktailDB website)
 features = [
     {
         "title": "🏠 Main Page",
@@ -63,15 +63,15 @@ features = [
 ]
 
 # Display features in an organized layout
-for feature in features:
-    st.markdown(f"### {feature['title']}")
-    col1, col2 = st.columns([1, 3])
+for feature in features: # loops through all the features in the list we created above
+    st.markdown(f"### {feature['title']}") # displays the title of the feature as a markdown lv3 = boldness lvl
+    col1, col2 = st.columns([1, 3]) # create two collums. col1 is 1 part wide, col2 is 3 parts wide
     with col1:
-        st.image(feature["image"], width=100)
+        st.image(feature["image"], width=100) # col1 show the image of the feature with width 100
     with col2:
-        st.markdown(feature["description"])
+        st.markdown(feature["description"]) # col2 display the description of the feature
 
-# Call to Action
+# just a random message to get the people going (provocative lol)
 st.markdown(
     """
     ---

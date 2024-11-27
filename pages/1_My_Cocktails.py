@@ -1,10 +1,11 @@
-import streamlit as st
-from utils.data_fetch import calculate_cocktail_features
-from utils.pdf_generation import generate_pdf
-import joblib
-import tempfile
+import streamlit as st # use streamlit
+from utils.data_fetch import calculate_cocktail_features # we need the data_fetch script for the calculate_cocktail_features function
+from utils.pdf_generation import generate_pdf # we need the pdf logic to create the pdf button
+import joblib # Handles saving and loading Python objects efficiently. we need it to import our pre-trained ML model
+import tempfile # Creates temporary files and directories that are automatically deleted when no longer needed.
+                # we use it to create a temporary PDF for the user to download while not cluttering the file system
 
-# Load the ML model
+# Load the pre-trained ML model using joblib
 model = joblib.load("ml/difficulty_model.pkl")
 
 # Page Title
