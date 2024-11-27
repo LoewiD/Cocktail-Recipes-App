@@ -1,79 +1,80 @@
 import streamlit as st
 
 # Page Title
-st.title("🍹 The Ultimate Cocktail App 🍹")
+st.title("🍹 Welcome to the Ultimate Cocktail Recipes App! 🍹")
 
-# Introduction Section
+# Introduction
 st.markdown(
     """
-    Welcome to **The Ultimate Cocktail App**, your one-stop destination for discovering, creating, and learning about cocktails!
-    Whether you're a seasoned mixologist or just getting started, our app has something for everyone. 
-    Use the sidebar to explore the following features:
+    Discover, save, and create your favorite cocktails! This app lets you explore cocktail recipes, manage your favorites, generate shopping lists, and even predict the difficulty of making a cocktail.
     """
 )
+
 
 # Features Overview
-st.subheader("🔎 Explore Features")
+st.markdown("## 🔎 Explore Features")
 
-# Organize features into visually distinct sections using columns
-col1, col2 = st.columns(2)
-
-with col1:
-    st.markdown(
-        """
-        ### 📊 Ingredient Statistics
-        - Discover the most popular ingredients across all cocktails.
-        - See which ingredients are most commonly used and their distribution.
-        """
-    )
-    st.image("https://www.thecocktaildb.com/images/media/drink/qxvtst1461867579.jpg", caption="Explore Ingredients", use_column_width=True)
-
-    st.markdown(
-        """
-        ### 🔍 Search Cocktails by Name
-        - Enter the name of a cocktail to find detailed recipes.
-        - Perfect if you know what you're looking for.
-        """
-    )
-    st.image("https://www.thecocktaildb.com/images/media/drink/uqxqsy1468876703.jpg", caption="Search by Name", use_column_width=True)
-
-
-with col2:
-    st.markdown(
-        """
-        ### 🍸 Search Cocktails by Ingredients
-        - Select ingredients you have on hand to find matching cocktail recipes.
-        - Filter results by taste, glass type, and difficulty.
-        """
-    )
-    st.image("https://www.thecocktaildb.com/images/media/drink/5noda61589575158.jpg", caption="Find Recipes", use_column_width=True)
-    
-
-    st.markdown(
-        """
-        ### 🍀 Feeling Lucky?
-        - Get a random cocktail suggestion for inspiration.
-        - Discover new and exciting cocktails you might not have tried!
-        """
-    )
-    st.image("https://www.thecocktaildb.com/images/media/drink/3k9qic1493068931.jpg", caption="Random Cocktails", use_column_width=True)
-
-# Cocktail Difficulty Prediction Section
-st.subheader("💡 Cocktail Difficulty Prediction")
+# Feature Descriptions
 st.markdown(
     """
-    - Predict the difficulty of making a cocktail based on the number of ingredients and instruction complexity.
-    - Tailor your experience to your skill level.
+    ### 🌟 Features
+    Use the **sidebar** to navigate through the app. Below are the features you can explore:
     """
 )
-st.image("https://www.thecocktaildb.com/images/media/drink/yutxtv1473344210.jpg", caption="Predict Difficulty", use_column_width=True)
 
-# Closing Section
+# Create a feature list with images/icons
+features = [
+    {
+        "title": "🏠 Main Page",
+        "description": "An overview of the app features and navigation tips.",
+        "image": "https://www.thecocktaildb.com/images/media/drink/metwgh1606770327.jpg",
+    },
+    {
+        "title": "📝 My Cocktails",
+        "description": "Save your favorite cocktails, manage your list, and generate a PDF for shopping and recipes.",
+        "image": "https://www.thecocktaildb.com/images/media/drink/vrwquq1478252802.jpg",
+    },
+    {
+        "title": "📊 Ingredient Statistics",
+        "description": "Visualize the most popular ingredients and their usage trends in cocktails.",
+        "image": "https://www.thecocktaildb.com/images/media/drink/yrqppx1478962314.jpg",
+    },
+    {
+        "title": "🍸 Search Cocktails By Ingredients",
+        "description": "Find cocktails based on the ingredients you have on hand.",
+        "image": "https://www.thecocktaildb.com/images/media/drink/xxyywq1454511117.jpg",
+    },
+    {
+        "title": "🔍 Search Cocktails By Name",
+        "description": "Search for your favorite cocktails by name and get detailed recipes.",
+        "image": "https://www.thecocktaildb.com/images/media/drink/3qpv121504366699.jpg",
+    },
+    {
+        "title": "🍀 I'm Feeling Lucky",
+        "description": "Get a random cocktail suggestion and discover something new!",
+        "image": "https://www.thecocktaildb.com/images/media/drink/5noda61589575158.jpg",
+    },
+    {
+        "title": "💡 Cocktail Difficulty Prediction",
+        "description": "Predict how challenging a cocktail is to make using AI.",
+        "image": "https://www.thecocktaildb.com/images/media/drink/wmkbfj1606853905.jpg",
+    },
+]
+
+# Display features in an organized layout
+for feature in features:
+    st.markdown(f"### {feature['title']}")
+    col1, col2 = st.columns([1, 3])
+    with col1:
+        st.image(feature["image"], width=100)
+    with col2:
+        st.markdown(feature["description"])
+
+# Call to Action
 st.markdown(
     """
     ---
-    ## Ready to Dive In?
-    Use the **sidebar** to navigate between the features and start exploring!
-    If you have any feedback, let us know—cheers! 🥂
+    ## 🎉 Ready to Start Mixing?
+    Use the **sidebar** to explore features and start creating amazing cocktails. Cheers! 🥂
     """
 )

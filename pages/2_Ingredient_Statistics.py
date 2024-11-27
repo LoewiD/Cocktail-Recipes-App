@@ -1,8 +1,8 @@
 import streamlit as st
 import plotly.express as px
 import pandas as pd
+import time
 from utils.data_fetch import fetch_all_ingredients, fetch_cocktails_by_ingredient
-
 
 @st.cache_data
 def get_top_ingredients(): # fetches the 10 most popular ingredients
@@ -15,6 +15,7 @@ def get_top_ingredients(): # fetches the 10 most popular ingredients
     # Count the number of cocktails for each ingredient
     ingredient_counts = []
     for ingredient in ingredient_options:
+        time.sleep(0.5) #stupid API cannot handle a lot of requests so we have to delay the individual requests with a timer (0.5 second)
         cocktails = fetch_cocktails_by_ingredient(ingredient)
         ingredient_counts.append({"Ingredient": ingredient, "Count": len(cocktails) if cocktails else 0})
 

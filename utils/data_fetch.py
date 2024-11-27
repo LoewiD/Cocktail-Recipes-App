@@ -128,3 +128,16 @@ def fetch_random_cocktail():
     except requests.exceptions.RequestException as e:
         st.error(f"Request exception: {e}")
         return None
+
+def calculate_cocktail_features(cocktail):
+    """
+    Calculates the number of ingredients and instruction length for a given cocktail.
+    Args:
+        cocktail (dict): A dictionary containing cocktail details.
+    Returns:
+        tuple: (num_ingredients, instruction_length)
+    """
+    num_ingredients = sum(1 for i in range(1, 16) if cocktail.get(f"strIngredient{i}"))
+    instruction_length = len(cocktail["strInstructions"].split()) if cocktail.get("strInstructions") else 0
+    return num_ingredients, instruction_length
+
