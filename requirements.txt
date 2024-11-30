@@ -1,6 +1,7 @@
 streamlit==1.25.0
 requests==2.31.0
 fpdf==1.7.2
-scikit-learn==1.2.2
+./scikit_learn-1.2.2-cp39-cp39-manylinux1_x86_64.whl
 plotly==5.9.0
 pandas==1.5.3
+
