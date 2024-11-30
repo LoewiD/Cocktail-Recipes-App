@@ -1,7 +1,7 @@
 streamlit==1.25.0
 requests==2.31.0
 fpdf==1.7.2
-./scikit_learn-1.2.2-cp311-cp311-macosx_12_0_arm64.whl
+scikit-learn==1.0.2
 plotly==5.9.0
 pandas==1.5.3
 
