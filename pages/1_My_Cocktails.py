@@ -22,20 +22,36 @@ if "my_cocktails" in st.session_state and st.session_state["my_cocktails"]: #che
     # Display saved cocktails
     for cocktail in cocktails: # loops through all the cocktails which are expected to be dictionairies themselves
         st.subheader(cocktail["strDrink"]) # use the name of the cocktail as a title
-        st.image(cocktail["strDrinkThumb"], width=300) # display the image stored in the API in form of a URL. (Size = width = 300 purely optical)
 
-        # Calculate features
-        num_ingredients, instruction_length = calculate_cocktail_features(cocktail) # run the function from data_fetch.py to get the number of ingredients and the instruction length
+        col1, col2, col3 = st.columns([3, 3, 3]) # we create three collumns with width = 3 parts each
+        with col1:
+            st.image(cocktail["strDrinkThumb"], width=200) # display the image stored in the API in form of a URL. (Size = width = 300 purely optical)
 
-        # Predict difficulty using the before loaded model (line 8) and the list input of num_ingredients and instruction_length.
-        prediction = model.predict([[num_ingredients, instruction_length]])[0] # the output is a single digit value 0,1,2 and we only use the first (0) prediction
-        difficulty = {0: "Easy", 1: "Medium", 2: "Hard"}[prediction] # returns the diffictulty according to the prediction value as a word for the user to read
+            # Calculate features
+            num_ingredients, instruction_length = calculate_cocktail_features(cocktail) # run the function from data_fetch.py to get the number of ingredients and the instruction length
 
-        # Display all the cocktail details (f is used to format and ** is for bold text)
-        st.write(f"**Difficulty**: {difficulty}") # difficulty
-        st.write(f"**Number of Ingredients**: {num_ingredients}") # number of ingredients
-        st.write(f"**Instruction Length**: {instruction_length} words") # instruction length
-        st.write(f"**Instructions**: {cocktail['strInstructions']}") # instructions for the cocktail
+            # Predict difficulty using the before loaded model (line 8) and the list input of num_ingredients and instruction_length.
+            prediction = model.predict([[num_ingredients, instruction_length]])[0] # the output is a single digit value 0,1,2 and we only use the first (0) prediction
+            difficulty = {0: "Easy", 1: "Medium", 2: "Hard"}[prediction] # returns the diffictulty according to the prediction value as a word for the user to read
+
+
+        with col2:
+            st.write("**AI predicts:**")
+            # Display all the cocktail details (f is used to format and ** is for bold text)
+            st.write(f"Difficulty: {difficulty}") # difficulty
+            st.write(f"Number of Ingredients: {num_ingredients}") # number of ingredients
+            st.write(f"Instruction Length: {instruction_length} words") # instruction length
+
+        with col3:
+            st.write("**Ingredients**:") # show ingredients with their measurements
+            for i in range(1, 16):
+                ingredient = cocktail.get(f"strIngredient{i}")
+                measurement = cocktail.get(f"strMeasure{i}")
+                if ingredient:
+                    st.write(f"- {measurement or ''} {ingredient}")
+
+        st.write(f"**Instructions**: {cocktail['strInstructions']}")  # instructions for the cocktail under the image (not in a collumn)
+
 
         # Option to remove a cocktail using a button and st.session_state logic
         if st.button(f"Remove {cocktail['strDrink']} from My Cocktails", key=f"remove_{cocktail['idDrink']}"):

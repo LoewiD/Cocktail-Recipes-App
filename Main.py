@@ -1,7 +1,7 @@
 import streamlit as st # import streamlit so that we can use streamlit integrated functions with st.
 
 # Page Title
-st.title("🍹 Welcome to the Ultimate Cocktail Recipes App! 🍹")
+st.title("The Ultimate Cocktail Recipes App!")
 
 # Introduction text
 st.write(
@@ -32,17 +32,17 @@ features = [
     },
     {
         "title": "📝 My Cocktails",
-        "description": "Save your favorite cocktails, manage your list, and generate a PDF for shopping and recipes.",
+        "description": "Save your favorite cocktails, manage your list, and generate a PDF for shopping-list and recipes.",
         "image": "https://www.thecocktaildb.com/images/media/drink/vrwquq1478252802.jpg",
     },
     {
         "title": "📊 Ingredient Statistics",
-        "description": "Visualize the most popular ingredients and their usage trends in cocktails.",
+        "description": "Look up an ingredient and see how often it is being used in the recipes. Visualize the most popular ingredients and their usage trends in cocktails.",
         "image": "https://www.thecocktaildb.com/images/media/drink/yrqppx1478962314.jpg",
     },
     {
         "title": "🍸 Search Cocktails By Ingredients",
-        "description": "Find cocktails based on the ingredients you have on hand.",
+        "description": "Find cocktails based on the ingredients you have on hand or search for cocktails by the ingredients you like most.",
         "image": "https://www.thecocktaildb.com/images/media/drink/xxyywq1454511117.jpg",
     },
     {
@@ -57,7 +57,7 @@ features = [
     },
     {
         "title": "💡 Cocktail Difficulty Prediction",
-        "description": "Predict how challenging a cocktail is to make using AI.",
+        "description": "Predict how challenging a cocktail is to make using ML.",
         "image": "https://www.thecocktaildb.com/images/media/drink/wmkbfj1606853905.jpg",
     },
 ]
@@ -76,7 +76,6 @@ st.markdown(
     """
     ---
     ## 🎉 Ready to Start Mixing?
-    Use the **sidebar** to explore features and start creating amazing cocktails. Cheers! 🥂
+    Use the **sidebar** to explore features and start adding amazing cocktails to your list. Cheers! 🥂
     """
 )
- # test joel demo
