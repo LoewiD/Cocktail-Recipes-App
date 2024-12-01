@@ -13,7 +13,11 @@ import tempfile # Creates temporary files and directories that are automatically
 model = joblib.load("ml/difficulty_model.pkl")
 
 # Page Title
-st.title("🍹 My Cocktails")
+st.title("📝 My Cocktails")
+st.markdown("""
+Here you will find all your favorite cocktails if you decide to save any. \n 
+You can also generate a PDF which includes a shopping list as well as instruction to make your favorite cocktails at home!
+""")
 
 # Check if there are saved cocktails. St.session_state is a special dictionary-like object in Streamlit used to persist data across app reruns.
 if "my_cocktails" in st.session_state and st.session_state["my_cocktails"]: #checks that the key "my_cocktails" exists and also that it is not empty

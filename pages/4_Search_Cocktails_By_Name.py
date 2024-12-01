@@ -3,6 +3,10 @@ from utils.data_fetch import fetch_cocktail_by_name # import function from data_
 
 # Page Title
 st.title("🔍 Look Up Cocktails by Name")
+st.markdown("""
+  On this page you can search for cocktails by name
+    \n You can also search for part of the name and the program will most likely find the cocktail you are looking for.
+   """)
 
 # Initialize session state for cocktails if not already present
 if "current_cocktails" not in st.session_state:

@@ -3,7 +3,12 @@ from utils.user_interaction import get_user_input # we use the input from the us
 from utils.data_fetch import fetch_cocktails_by_ingredient, fetch_cocktail_details # we utilize the functions defined in the data_fetch.py script
 
 # Page Title
-st.title("Search Cocktails by Ingredients")
+st.title("🍸 Search Cocktails by Ingredients")
+
+st.markdown("""
+  On this page you can search for cocktails using ingredients.
+    \n Choose all the ingredients you want your cocktail to include and if there is a match, we'll make sure to present it to you.
+   """)
 
 # User selects ingredients
 ingredients = get_user_input()

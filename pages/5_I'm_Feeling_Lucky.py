@@ -3,6 +3,10 @@ from utils.data_fetch import fetch_random_cocktail  # we need the random cocktai
 
 # Page Title
 st.title("🍀 Random Cocktail Suggestion")
+st.markdown("""
+  Not sure what you want to drink?
+    \n No problem! We have got you covered. Simply click on the button and get ready for a surprise!
+   """)
 
 # Initialize session state for random cocktail and favorites
 if "current_random_cocktail" not in st.session_state:

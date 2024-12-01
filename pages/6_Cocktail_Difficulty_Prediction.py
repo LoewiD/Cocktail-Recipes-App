@@ -6,7 +6,7 @@ import joblib
 model = joblib.load("ml/difficulty_model.pkl")
 
 # Page Title
-st.title("Cocktail Difficulty Prediction")
+st.title("💡 Cocktail Difficulty Prediction")
 
 # User Inputs
 st.subheader("Enter Cocktail Features")

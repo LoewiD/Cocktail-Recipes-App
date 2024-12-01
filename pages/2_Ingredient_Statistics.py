@@ -29,7 +29,13 @@ def get_top_ingredients(): # function that fetches the 10 most popular ingredien
 
 def ingredient_insights(): # function definition of the pie chart of how often a single ingredient is used
 
-    st.title("Ingredient Usage Insights") # title
+    st.title("📊 Ingredient Usage Insights") # title
+
+    st.markdown("""
+    Here you can find out how often your favorite ingredient is used throughout the recipes. Simply select the ingredient you want insights for and the graph will adjust automatically!
+    \n You can also take a look at the static bar chart to see an overview of the ten most used ingredients.
+    
+    """)
 
     # Fetch all available ingredients
     ingredient_options = fetch_all_ingredients()
