@@ -3,3 +3,4 @@ requests~=2.31.0
 fpdf~=1.7.2
 joblib
 scikit-learn
+plotly
