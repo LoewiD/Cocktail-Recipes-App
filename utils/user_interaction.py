@@ -7,7 +7,7 @@ def get_user_input(): # definde function to get user input
 
     if ingredient_options: # check if the options are there
         # User selects ingredients using multiselect (less room for errors by misspelling etc)
-        ingredients = st.multiselect("Select ingredients you have:", ingredient_options)
+        ingredients = st.multiselect("Select ingredients:", ingredient_options)
 
         return ingredients
     else:
