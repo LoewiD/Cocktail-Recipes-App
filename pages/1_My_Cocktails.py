@@ -6,7 +6,7 @@ import tempfile # Creates temporary files and directories that are automatically
                 # we use it to create a temporary PDF for the user to download while not cluttering the file system
 
 import sklearn
-print(sklearn.__version__)
+st.write(sklearn.__version__)
 
 # Load the pre-trained ML model using joblib (we have to have it trained Manually before!)
 model = joblib.load("ml/difficulty_model.pkl")
