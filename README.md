@@ -23,9 +23,14 @@ The **Cocktail Recipes App** is a tool for discovering, saving, and managing coc
 Install all dependencies with:
 ```bash
 pip install -r requirements.txt
-
 ```
 It is possible that a new user might have to train the model themselves:
+make sure you have the correct version of sklearn 1.5.2
+```bash
+pip show scikit-learn
+
+scikit-learn==1.5.2
+```
 ```bash
 python train_difficulty_model.py
 ```
