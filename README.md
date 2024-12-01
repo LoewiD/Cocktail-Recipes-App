@@ -23,6 +23,11 @@ The **Cocktail Recipes App** is a tool for discovering, saving, and managing coc
 Install all dependencies with:
 ```bash
 pip install -r requirements.txt
+
+```
+It is possible that a new user might have to train the model themselves:
+```bash
+python train_difficulty_model.py
 ```
 Structure:
 ```

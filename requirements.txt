@@ -2,5 +2,5 @@ pandas~=2.2.2
 requests~=2.31.0
 fpdf~=1.7.2
 joblib
-scikit-learn
+scikit-learn == 1.2.2
 plotly
