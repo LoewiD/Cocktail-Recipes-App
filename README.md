@@ -1,6 +1,6 @@
 # 🍹 Cocktail Recipes App
 
-## Overview
+# Overview
 The **Cocktail Recipes App** is a tool for discovering, 
 saving, and managing cocktail recipes. With features like 
 ingredient-based search, random cocktail suggestions, and machine learning-powered 
@@ -14,7 +14,7 @@ difficulty prediction. It's a consumer use based program and a helpful gadget to
 - **Feeling Lucky**: Get a random cocktail suggestion.
 - **Difficulty Prediction**: Predict the difficutly of a cocktail based on ML predictions
 
-## Requirements
+# Requirements
 - **Python 3.12**
 - **Dependencies**:
   - `pandas`
@@ -42,7 +42,7 @@ cd ml
 python train_difficulty_model.py
 ```
 
-## Application Startup
+# Application Startup
 To run the Application you need to input the following code in your terminal:
 ```bash
 streamlit run Main.py
@@ -50,7 +50,7 @@ streamlit run Main.py
 or run the web-based, published version via: 
 https://cocktail-recipes.streamlit.app
 
-## Structure:
+# Structure:
 ```
 cocktail-recipes-app/
 ├── ml/
@@ -77,7 +77,7 @@ cocktail-recipes-app/
 ├── README.md                         # Instructions for setting up and using the app
 
 ```
-## Help
+# Help
 If you need assistance with the application you can contact us via email.
 
 # Contributors
