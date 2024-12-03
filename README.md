@@ -1,7 +1,10 @@
 # 🍹 Cocktail Recipes App
 
 ## Overview
-The **Cocktail Recipes App** is a tool for discovering, saving, and managing cocktail recipes. With features like ingredient-based search, random cocktail suggestions, and machine learning-powered difficulty prediction.
+The **Cocktail Recipes App** is a tool for discovering, 
+saving, and managing cocktail recipes. With features like 
+ingredient-based search, random cocktail suggestions, and machine learning-powered 
+difficulty prediction. It's a consumer use based program and a helpful gadget to plan a party.
 
 ## Features
 - **My Cocktails**: Save your favorite cocktails and generate a PDF shopping list with detailed recipes.
@@ -9,16 +12,17 @@ The **Cocktail Recipes App** is a tool for discovering, saving, and managing coc
 - **Search by Ingredients**: Find cocktails based on the ingredients you have.
 - **Search by Name**: Look up specific cocktails.
 - **Feeling Lucky**: Get a random cocktail suggestion.
-
+- **Difficulty Prediction**: Predict the difficutly of a cocktail based on ML predictions
 
 ## Requirements
-- **Python 3.9+**
+- **Python 3.12**
 - **Dependencies**:
-  - `streamlit`
+  - `pandas`
   - `requests`
   - `fpdf`
   - `joblib`
-  - `Pillow`
+  - `scikit-learn`
+  - `plotly`
 
 Install all dependencies with:
 ```bash
@@ -31,10 +35,22 @@ pip show scikit-learn
 
 scikit-learn==1.5.2
 ```
+to train the model:
 ```bash
+cd ml
+
 python train_difficulty_model.py
 ```
-Structure:
+
+## Application Startup
+To run the Application you need to input the following code in your terminal:
+```bash
+streamlit run Main.py
+```
+or run the web-based, published version via: 
+https://cocktail-recipes.streamlit.app
+
+## Structure:
 ```
 cocktail-recipes-app/
 ├── ml/
@@ -46,7 +62,7 @@ cocktail-recipes-app/
 │   ├── 2_Ingredient_Statistics.py    # Page for visualizing ingredient statistics
 │   ├── 3_Search_Cocktails_by_Ingredient.py # Page for searching cocktails by ingredients
 │   ├── 4_Search_Cocktails_by_Name.py       # Page for searching cocktails by name
-│   ├── 5_Feeling_Lucky.py            # Page for random cocktail suggestions
+│   ├── 5_I'm_Feeling_Lucky.py            # Page for random cocktail suggestions
 │   ├── 6_Cocktail_Difficulty_Prediction.py # Page for difficulty prediction
 │
 ├── utils/
@@ -61,6 +77,18 @@ cocktail-recipes-app/
 ├── README.md                         # Instructions for setting up and using the app
 
 ```
+## Help
+If you need assistance with the application you can contact us via email.
+
+# Contributors
+
+- Alicia
+- Daniel
+- Dennis
+- Gabriel
+- Joel
+
+
 
 
 
