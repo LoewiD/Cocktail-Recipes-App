@@ -25,7 +25,7 @@ if "my_cocktails" in st.session_state and st.session_state["my_cocktails"]: #che
 
     # Display saved cocktails
     for cocktail in cocktails: # loops through all the cocktails which are expected to be dictionairies themselves
-        st.subheader(cocktail["strDrink"]) # use the name of the cocktail as a title
+        st.subheader(cocktail["strDrink"]) # use the name of the cocktail as a title§
 
         col1, col2, col3 = st.columns([3, 3, 3]) # we create three collumns with width = 3 parts each
         with col1:
