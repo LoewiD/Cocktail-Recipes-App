@@ -106,3 +106,10 @@ if "my_cocktails" in st.session_state and st.session_state["my_cocktails"]:  # c
                 )
 else:
     st.info("You haven't saved any cocktails yet.")  # if there are no cocktails saved in the session state, the message is showed to the user
+
+st.info("""
+### Tips for Difficulty Levels:
+- **Easy**: Minimal ingredients, short/simple instructions.
+- **Medium**: Moderate ingredients and complexity.
+- **Hard**: Many ingredients or detailed preparation steps.
+""")
