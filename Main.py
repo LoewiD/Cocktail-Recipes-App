@@ -55,7 +55,7 @@ features = [
         "description": "Get a random cocktail suggestion and discover something new!",
         "image": "https://www.thecocktaildb.com/images/media/drink/5noda61589575158.jpg",
     },
-    
+
 ]
 
 # Display features in an organized layout

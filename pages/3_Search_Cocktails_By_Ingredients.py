@@ -53,7 +53,7 @@ if ingredients:
 
                 st.write("Ingredients:") # print Ingredients:
                 for ingredient, measure in zip(ingredients_list, measurements): # use Zip to combine one ingredient to one measurement and create something like a dictionary
-                    st.write(f"{measure} {ingredient}") # display the zipped data
+                    st.write(f"- {measure} {ingredient}") # display the zipped data
 
                 # Add Save Button for the "My_Cocktails" Page
                 if st.button(f"Save {details['strDrink']} to My Cocktails", key=f"save_{details['idDrink']}"): # saves the cocktail ID to the session state "my_cocktails"

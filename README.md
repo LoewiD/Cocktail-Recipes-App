@@ -12,7 +12,7 @@ difficulty prediction. It's a consumer use based program and a helpful gadget to
 - **Search by Ingredients**: Find cocktails based on the ingredients you have.
 - **Search by Name**: Look up specific cocktails.
 - **Feeling Lucky**: Get a random cocktail suggestion.
-- **Difficulty Prediction**: Predict the difficutly of a cocktail based on ML predictions
+
 
 # Requirements
 - **Python 3.12**
@@ -56,6 +56,7 @@ cocktail-recipes-app/
 ├── ml/
 │   ├── train_difficulty_model.py     # Script for training the ML model
 │   ├── difficulty_model.pkl          # Pre-trained ML model for difficulty prediction
+│   ├── cocktails_data.csv         # Data set for training ml model
 │
 ├── pages/
 │   ├── 1_My_Cocktails.py             # Page for managing favorite cocktails
@@ -63,7 +64,6 @@ cocktail-recipes-app/
 │   ├── 3_Search_Cocktails_by_Ingredient.py # Page for searching cocktails by ingredients
 │   ├── 4_Search_Cocktails_by_Name.py       # Page for searching cocktails by name
 │   ├── 5_I'm_Feeling_Lucky.py            # Page for random cocktail suggestions
-│   ├── 6_Cocktail_Difficulty_Prediction.py # Page for difficulty prediction
 │
 ├── utils/
 │   ├── data_fetch.py                 # Functions to interact with APIs
