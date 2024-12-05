@@ -55,11 +55,7 @@ features = [
         "description": "Get a random cocktail suggestion and discover something new!",
         "image": "https://www.thecocktaildb.com/images/media/drink/5noda61589575158.jpg",
     },
-    {
-        "title": "💡 Cocktail Difficulty Prediction",
-        "description": "Predict how challenging a cocktail is to make using ML.",
-        "image": "https://www.thecocktaildb.com/images/media/drink/wmkbfj1606853905.jpg",
-    },
+    
 ]
 
 # Display features in an organized layout
