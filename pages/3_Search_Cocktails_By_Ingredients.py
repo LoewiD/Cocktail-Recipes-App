@@ -42,10 +42,10 @@ if ingredients:
                 # Display cocktail details
                 st.subheader(details['strDrink']) # Name of Drink
                 st.image(details['strDrinkThumb']) # Picture of Drink
-                st.write(f"**Category**: {cocktail['strCategory']}")  # category of the drink
-                st.write(f"**Glass**: {cocktail['strGlass']}")  # glass type of the drink
-                st.write(f"**Alcoholic**: {cocktail['strAlcoholic']}")  # alcoholic vs non-alcoholic
-                st.write(f"**Instructions**: {cocktail['strInstructions']}")  # instructions for the drink
+                st.write(f"**Category:** {details['strCategory']}") # Category of Drink
+                st.write(f"**Glass:** {details['strGlass']}") # Glass Type of Drink
+                st.write(f"**Alcoholic:** {details['strAlcoholic']}") # Alcoholic vs non-alcoholic
+                st.write(f"**Instructions:** {details['strInstructions']}") # Instructions for the drink
 
                 # Display ingredients and measurements
                 ingredients_list = [details[f'strIngredient{i}'] for i in range(1, 16) if details[f'strIngredient{i}']] # check for ingredients 0-15 and add them to the ingredient list
