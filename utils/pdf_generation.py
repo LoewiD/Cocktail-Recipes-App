@@ -128,3 +128,11 @@ def generate_pdf(cocktails, save_path): # function to save PDFs
 
     # Output the PDF
     pdf.output(save_path) # Writes the final PDF to the specified "save_path"
+
+def sanitize_text(text):
+    return text.replace("’", "'").replace("‘", "'").replace("—", "-").replace("“", '"').replace("”", '"')
+
+# Example usage
+instructions = sanitize_text(cocktail["strInstructions"])
+self.multi_cell(0, 10, instructions, align="C")
+
