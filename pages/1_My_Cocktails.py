@@ -19,6 +19,13 @@ st.title("🍹 My Cocktails")
 if "my_cocktails" in st.session_state and st.session_state["my_cocktails"]:  # checks that the key "my_cocktails" exists and also that it is not empty
     cocktails = st.session_state["my_cocktails"]  # the list of saved cocktails in the st.session_state is assigned to the cocktails variable
 
+    st.info("""
+    ### Tips for Difficulty Levels:
+    - **Easy**: Minimal ingredients, short/simple instructions.
+    - **Moderate**: Moderate ingredients and complexity.
+    - **Hard**: Many ingredients or detailed preparation steps.
+    """)
+
     # Display saved cocktails
     for cocktail in cocktails:  # loops through all the cocktails which are expected to be dictionaries themselves
         st.subheader(cocktail["strDrink"])  # use the name of the cocktail as a title
@@ -107,9 +114,3 @@ if "my_cocktails" in st.session_state and st.session_state["my_cocktails"]:  # c
 else:
     st.info("You haven't saved any cocktails yet.")  # if there are no cocktails saved in the session state, the message is showed to the user
 
-st.info("""
-### Tips for Difficulty Levels:
-- **Easy**: Minimal ingredients, short/simple instructions.
-- **Medium**: Moderate ingredients and complexity.
-- **Hard**: Many ingredients or detailed preparation steps.
-""")
