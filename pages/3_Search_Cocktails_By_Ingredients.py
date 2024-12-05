@@ -51,7 +51,7 @@ if ingredients:
                 ingredients_list = [details[f'strIngredient{i}'] for i in range(1, 16) if details[f'strIngredient{i}']] # check for ingredients 0-15 and add them to the ingredient list
                 measurements = [details[f'strMeasure{i}'] for i in range(1, 16) if details[f'strMeasure{i}']] # check for measurements 0-15 and add them to the measurements list
 
-                st.write("Ingredients:") # print Ingredients:
+                st.write("**Ingredients:**") # print Ingredients:
                 for ingredient, measure in zip(ingredients_list, measurements): # use Zip to combine one ingredient to one measurement and create something like a dictionary
                     st.write(f"- {measure} {ingredient}") # display the zipped data
 
