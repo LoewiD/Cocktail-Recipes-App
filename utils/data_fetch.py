@@ -51,7 +51,7 @@ def fetch_cocktails_by_ingredient(ingredient):  # ingredient as a placeholder fo
 
             # Check if the 'drinks' key is present in the response data
             if 'drinks' in data:
-                # Return the list of drinks that contain the specified ingredient
+                # Return the list of drinks (which are dictionaries) that contain the specified ingredient
                 return data['drinks']
             else:
                 # If no drinks were found, return an empty list
