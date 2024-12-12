@@ -10,7 +10,7 @@ def get_top_ingredients(): # function that fetches the 10 most popular ingredien
     # Fetch all ingredients
     ingredient_options = fetch_all_ingredients()
     if not ingredient_options: # if it did not work,
-        return [] # import pandas as pd
+        return [] # return an empty list
 
     # Count the number of cocktails for each ingredient
     ingredient_counts = [] # start with an empty list
@@ -24,10 +24,12 @@ def get_top_ingredients(): # function that fetches the 10 most popular ingredien
     # Sort ingredient_counts by count and take the top :10 (0-9)
     sorted_ingredients = sorted(ingredient_counts, key=lambda x: x["Count"], reverse=True)[:10]
     # lambda x creates a temporary function where x is the input (count), making it useful for short, one-time operations like sorting. we could also use a self defined function but it would not look as good
+    # key=lambda x: x["count"] the key specifies the function to determine the sorting criteria, the lambda part is the function which returns "count"
+    # reverse = True --> the list is sorted in decending order (highest to lowest)
     return sorted_ingredients
 
 
-def ingredient_insights(): # function definition of the pie chart of how often a single ingredient is used
+def ingredient_insights(): # function definition of the pie chart of how often a single ingredient is used and the static graph
 
     st.title("📊 Ingredient Usage Insights") # title
 
@@ -47,7 +49,7 @@ def ingredient_insights(): # function definition of the pie chart of how often a
     selected_ingredient = st.selectbox("Select an ingredient to see its usage:", ingredient_options)
 
     if selected_ingredient:
-        # Fetch cocktails for the selected ingredient
+        # Fetch cocktails for the selected ingredient and store it in a list
         cocktails_with_ingredient = fetch_cocktails_by_ingredient(selected_ingredient)
         count_with_ingredient = len(cocktails_with_ingredient) # use the "len" logic to count all the cocktails in the "count_with_ingredient_list)
 
@@ -83,7 +85,7 @@ def ingredient_insights(): # function definition of the pie chart of how often a
 
         if top_ingredients:
             # Prepare data for bar chart
-            bar_data = pd.DataFrame(top_ingredients) # use pandas logic to prepare the data for the chart
+            bar_data = pd.DataFrame(top_ingredients) # use pandas logic to prepare the data for the chart. plotly express works well with structured data from pandas
 
             # Create the bar chart
             fig_bar = px.bar(

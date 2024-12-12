@@ -89,7 +89,7 @@ if "my_cocktails" in st.session_state and st.session_state["my_cocktails"]:  # c
         st.write(f"**Instructions**: {cocktail['strInstructions']}")  # instructions for the cocktail under the image (not in a column)
 
         # Option to remove a cocktail using a button and st.session_state logic
-        if st.button(f"Remove {cocktail['strDrink']} from My Cocktails", key=f"remove_{cocktail['idDrink']}"):
+        if st.button(f"Remove {cocktail['strDrink']} from My Cocktails", key=f"remove_{cocktail['idDrink']}"): # every widget in streamlit need to have a specific key so that the app knows what cocktail to delete
             st.session_state["my_cocktails"].remove(cocktail)  # remove the cocktail by using st.session_state.remove
             st.success(f"{cocktail['strDrink']} removed from My Cocktails!")  # display the "it-worked" message
 
@@ -109,7 +109,7 @@ if "my_cocktails" in st.session_state and st.session_state["my_cocktails"]:  # c
                     label="Download PDF",  # label of the button (name)
                     data=f,  # data opened in binary mode as defined above
                     file_name="Cocktail_Shopping_List_and_Recipes.pdf",  # name of the downloaded file
-                    mime="application/pdf",  # defines the type as PDF
+                    mime="application/pdf",  # defines the type as PDF which allows the browser to interpret the binary file as a pdf to show it correctly to the user
                 )
 else:
     st.info("You haven't saved any cocktails yet.")  # if there are no cocktails saved in the session state, the message is showed to the user
