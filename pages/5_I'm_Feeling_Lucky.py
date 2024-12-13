@@ -10,9 +10,9 @@ st.markdown("""
 
 # Initialize session state for random cocktail and favorites
 if "current_random_cocktail" not in st.session_state:
-    st.session_state["current_random_cocktail"] = None  # Store the current random cocktail
+    st.session_state["current_random_cocktail"] = None  # Store the current random cocktail. either one cocktails is stored or none. Single object placeholder
 if "my_cocktails" not in st.session_state:
-    st.session_state["my_cocktails"] = []  # Store favorite cocktails
+    st.session_state["my_cocktails"] = []  # Store favorite cocktails (empty list to build thestructure for saving multiple cocktails)
 
 # Button to Fetch a Random Cocktail
 if st.button("Get a Random Cocktail"):

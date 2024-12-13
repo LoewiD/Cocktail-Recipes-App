@@ -3,7 +3,7 @@ import os   # Python os module, which provides functionalit for interacting with
             # such as file management and directory handling
 
 
-class PDF(FPDF): # create custom PDF class that extends the FPDF functionality
+class PDF(FPDF): # create custom PDF class that extends the FPDF functionality (to define headers and footers for example)
     def header(self): # defines the header of the PDF by redefining the FPDF Class
         self.set_font("Arial", "B", 16) # Sets the font to Arial, makes it bold, and sets the size to 16
         self.set_text_color(0, 128, 47)  # Green (matching graphs in data visualization, HSG green)

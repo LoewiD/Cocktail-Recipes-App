@@ -20,7 +20,7 @@ if ingredients:
     # Use a set to ensure unique values and allow efficient intersection operations later
     common_cocktails = set(
         cocktail['idDrink'] for cocktail in fetch_cocktails_by_ingredient(ingredients[0])
-    )
+    )# the set stores the drink_id's of the cocktails as a list
 
     # Loop through the remaining ingredients in the list (starting from the second one)
     for ingredient in ingredients[1:]:
