@@ -89,8 +89,8 @@ class PDF(FPDF): # create custom PDF class that extends the FPDF functionality (
             import requests
             response = requests.get(url, stream=True) #instructs the requests library to download the content incrementally (in chunks) instead of loading it all at once into memory
             if response.status_code == 200: # OK
-                with open(save_path, "wb") as f: # opens file specified by save_path in binary mode (wb) to ensure the data is read as it is on the server
-                    f.write(response.content) # saves the downloaded image to the local system at the specified save_path (in binary)
+                with open(save_path, "wb") as f: # opens file specified by save_path in binary write mode (wb) to ensure the data is read as it is on the server
+                    f.write(response.content) # saves the downloaded image to the local system at the specified save_path (in binary).
                 img = self.image(save_path, x=x, y=y, w=width) # Adds the image saved at save_path to the PDF
                 os.remove(save_path) # Deletes the temporary image file from the local system after it has been added to the PDF
                 return 80  # Return approximate image height (This value is used to calculate additional spacing between sections)
@@ -106,7 +106,7 @@ def generate_pdf(cocktails, save_path): # function to save PDFs
     pdf = PDF() # initializes the PDF object so that we can use FPDF logic
 
 
-    os.makedirs("tmp", exist_ok=True) # chekcs for the tmp directory and creates it if it does not exist, exist_ok=True is there to prevent an error
+    os.makedirs("tmp", exist_ok=True) # chekcs for the tmp folder directory and creates it if it does not exist, exist_ok=True is there to prevent an error if there is already a tmp folder
 
     # Extract unique ingredients for the shopping list
     unique_ingredients = set() # Initializes an empty set to store unique ingredients (A set automatically removes duplicates)

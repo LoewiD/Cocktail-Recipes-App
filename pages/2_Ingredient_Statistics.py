@@ -86,6 +86,7 @@ def ingredient_insights(): # function definition of the pie chart of how often a
         if top_ingredients:
             # Prepare data for bar chart
             bar_data = pd.DataFrame(top_ingredients) # use pandas logic to prepare the data for the chart. plotly express works well with structured data from pandas
+            # the pd.DataFrame returns a tabular data of the top ingredients
 
             # Create the bar chart
             fig_bar = px.bar(

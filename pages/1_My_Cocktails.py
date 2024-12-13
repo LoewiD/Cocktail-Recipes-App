@@ -96,7 +96,7 @@ if "my_cocktails" in st.session_state and st.session_state["my_cocktails"]:  # c
     # PDF Generation Section
     st.markdown("### Generate a PDF with your favorite cocktails:")  # level 3 heading (the more # the smaller the heading)
     if st.button("Generate PDF"):  # initiate the button logic when clicked it has the value "True" which triggers the if-function
-        with tempfile.NamedTemporaryFile(delete=False, suffix=".pdf") as tmp_file:  # creates a temporary file with a unique name in the temporary directory
+        with tempfile.NamedTemporaryFile(delete=False, suffix=".pdf") as tmp_file:  # creates a temporary file with a unique name in the temporary directory (tmp as standard)
             # delete = false ensures that the file does not get deleted even after the program exits
             # as tmp_file = opens the pdf in a context manager which allows us to edit it
             # Edit the pdf with the generate_pdf logic
